@@ -1,96 +1,102 @@
 # SwiftCart 🛒
 
-A e-commerce storefront built using the Fake Store API. 
+A e-commerce storefront built using the Fake Store API.
 
-## Repository: Create your own public repository and submit the link.
+## JavaScript questions
 
----
+#### 1) What is the difference between `null` and `undefined`?
+
+জাভাস্ক্রিপ্টে এই দুইটার পার্থক্য হল:
+
+১. Undefined:
+ভেরিয়েবল ডিক্লেয়ার করা হয়েছে কিন্তু কোনো ভ্যালু অ্যাসাইন করা হয়নি। এটা ডিফল্ট অবস্থা। মেমোরিতে জায়গা আছে, কিন্তু ভেতরে কী আছে তা অজানা।
+
+২. Null:
+এটা ইচ্ছাকৃতভাবে সেট করা হয়। ভেরিয়েবলটি যে খালি বা সেখানে কোনো অবজেক্ট নেই, তা বোঝানোর জন্য প্রোগ্রামার নিজে এটি ব্যবহার করে।
+
+#### 2) What is the use of the `map()` function in JavaScript? How is it different from `forEach()`?
+
+১. map() একটা নতুন অ্যারে তৈরি করে। অরিজিনাল অ্যারের প্রতিটি উপাদানের ওপর কোনো নির্দিষ্ট কাজ (Function) চালিয়ে সেই রেজাল্ট দিয়ে একটি নতুন অ্যারে রিটার্ন করে। অরিজিনাল অ্যারে অপরিবর্তিত থাকে।
+
+২. forEach() কেবল অ্যারের প্রতিটি উপাদানের ওপর লুপ চালায়। এটা কোনো নতুন অ্যারে রিটার্ন করে না।
+
+#### 3) What is the difference between `==` and `===`?
+
+জাভাস্ক্রিপ্টে এই দুই অপারেটরের প্রধান পার্থক্য হলো তারা কীভাবে ডেটা টাইপ চেক করে।
+
+১. == (Loose Equality):
+এটা শুধুমাত্র ভ্যালু বা মান সমান কি না তা পরীক্ষা করে। যদি দুই পাশের ডেটা টাইপ আলাদা হয়, তবে এটা নিজে থেকেই টাইপ কনভার্ট করে মিলিয়ে দেখার চেষ্টা করে।
+
+২. === (Strict Equality):
+এটা ভ্যালু এবং ডেটা টাইপ উভয়ই সমান কি না তা পরীক্ষা করে। কোনো অটোমেটিক টাইপ কনভার্সন এখানে হয় না। এটি অনেক বেশি নিরাপদ এবং নির্ভুল।
+
+#### 4) What is the significance of `async`/`await` in fetching API data?
+
+জাভাস্ক্রিপ্টে async/await ব্যবহারের মূল গুরুত্ব হলো এসিনক্রোনাস (Asynchronous) কোডকে সিনক্রোনাস বা সাধারণ কোডের মতো সহজবোধ্য করা। এটা প্রমিজ (Promise) হ্যান্ডেল করার একটি আধুনিক পদ্ধতি। এতে কোড পড়তে সুবিধা হয় এবং দেখতেও গোছানো লাগে। এপিআই থেকে রেসপন্স না আসা পর্যন্ত await কি-ওয়ার্ড পরবর্তী লাইনের এক্সিকিউশন থামিয়ে রাখে। ফলে ডেটা আসার আগেই অন্য ফাংশন রান হওয়ার ভয় থাকে না।
+
+#### 5) Explain the concept of Scope in JavaScript (Global, Function, Block).
+
+ভেরিয়েবলের অ্যাক্সেস করার ক্ষমতাকেই Scope বলে।
+
+১. Global Scope:
+কোডের একেবারে শুরুতে বা যেকোনো ফাংশনের বাইরে সবজায়গায় কাজ করে। পুরো প্রোগ্রামের যেকোনো জায়গা থেকে ব্যবহার করা যায়।
+
+২. Function Scope:
+শুধুমাত্র একটি ফাংশনের ভেতরে কাজ করে। ফাংশনের বাইরে এটা কাজ করে না। (var, let, const সবার জন্য প্রযোজ্য)
+
+৩. Block Scope
+কার্লি ব্রেসেস { } বা লুপ/কন্ডিশনের ভেতরে কাজ করে। শুধু ওই ব্লকের ভেতরেই সীমাবদ্ধ। (শুধুমাত্র let এবং const এর জন্য)
+
 ## 🛍️ API Endpoints
----
+
 1. Get 🛍️ All Products
+
 ```bash
 https://fakestoreapi.com/products
 ```
 
 2. Get 🛍️ All Categories
+
 ```bash
 https://fakestoreapi.com/products/categories
 ```
 
 3. Get 🛍️ Products by Category
+
 ```bash
 https://fakestoreapi.com/products/category/${category}
 ```
 
 Example:
+
 ```bash
 https://fakestoreapi.com/products/category/jewelery
 ```
 
 4. Get 🛍️ Single Product Detail
+
 ```bash
 https://fakestoreapi.com/products/${id}
 ```
 
 Example:
+
 ```bash
 https://fakestoreapi.com/products/1
 ```
 
----
-
-## 🎯 Project Specifications (UI/UX)
-
-#### 1) Navbar
-- Website **logo/name** ("SwiftCart") on the **left**
-- **Menu items** (Home, Products, About, Contact) in the **center**
-- **Cart Icon/Button** on the **right** (showing item count is a bonus)
-
-#### 2) Banner / Hero Section
-- A **background image** (related to shopping/fashion/electronics)
-- A **title** (e.g., "Best Collection For You") and **subtitle**
-- A **centered button** (e.g., "Shop Now")
-
-#### 3) Features / Why Choose Us
-- **Section heading**
-- **3-4 items** highlighting features like "Fast Delivery", "24/7 Support", "Secure Payment", etc. (Icon + Title + Short Text)
-
-#### 4) Trending / Top Rated Section
-- Show **3 top-rated products** (you can filter by rating or just pick the first 3) based on API data or hardcoded for layout practice.
-
-#### 5) Newsletter & Footer
-- **Newsletter Subscription Form**: Email input + Subscribe button.
-- **Footer** with copyright info, social links, and quick links.
-
-#### 6) Responsiveness
-- Website must be **mobile responsive** 
-
----
-#### 7) Create a README file to answer the following questions-
-
-> **⚠️ Warning:** Do not use any AI tools to answer these questions. You must write the answers in **Bangla**.
-
-#### 1) What is the difference between `null` and `undefined`?
-
-#### 2) What is the use of the `map()` function in JavaScript? How is it different from `forEach()`?
-
-#### 3) What is the difference between `==` and `===`?
-
-#### 4) What is the significance of `async`/`await` in fetching API data?
-
-#### 5) Explain the concept of Scope in JavaScript (Global, Function, Block).
-
 ## ⚡ Dynamic Features & Functionalities
 
-1) Category Loading
-Load Product Categories dynamically on the UI (e.g., as filter buttons or a dropdown).
+1. Category Loading
+   Load Product Categories dynamically on the UI (e.g., as filter buttons or a dropdown).
 
-2) Category Click → Product Data
-On clicking a category: load products of that specific category.
-Display in a grid layout (e.g., 3 or 4 columns).
+2. Category Click → Product Data
+   On clicking a category: load products of that specific category.
+   Display in a grid layout (e.g., 3 or 4 columns).
 
-3) Card Contents
-Each product card must include:
+3. Card Contents
+   Each product card must include:
+
 - **Image** (from API)
 - **Title** (truncated if too long)
 - **Price** ($ value)
@@ -99,8 +105,9 @@ Each product card must include:
 - **Details Button**
 - **Add to Cart button**
 
-4) Modal on "Details" Click
-Clicking the "Details" button on a card opens a modal with full product details:
+4. Modal on "Details" Click
+   Clicking the "Details" button on a card opens a modal with full product details:
+
 - Full Title
 - Full Description
 - Price & Rating
@@ -127,18 +134,19 @@ Clicking the "Details" button on a card opens a modal with full product details:
     Highlight the currently selected category button.
 
 🧰 Technology Stack:
-    HTML
-    CSS (Vanilla / Tailwind / DaisyUI)
-    JavaScript (Vanilla only, no frameworks like React/Vue for this assignment)
+HTML
+CSS (Vanilla / Tailwind / DaisyUI)
+JavaScript (Vanilla only, no frameworks like React/Vue for this assignment)
 
 📌 Rules
 ✅ At least 5 meaningful commits
 ❌ No dummy text where real data can be shown.
 
 ## 🔗 Submission
+
 - **Live Link :** YOUR_DEPLOYED_URL_HERE
 - **GitHub Repository:** YOUR_REPO_URL_HERE
 
-
 ### 📅 Deadline For 60 marks: 17th February, 2026 (11:59 pm ⏱️)
+
 - Note: There won't be any 50 or 30 marks submission deadline. Only 60 marks submission deadline. After 17th February, 2026 (11:59 pm ⏱️) no submission will be accepted.
