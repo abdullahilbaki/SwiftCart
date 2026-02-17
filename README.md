@@ -1,5 +1,6 @@
-## WELCOME TO ( সহজ সরল সিম্পল ) ASSIGNMENT (SwiftCart E-Commerce)
+# SwiftCart 🛒
 
+A e-commerce storefront built using the Fake Store API. 
 
 ## Repository: Create your own public repository and submit the link.
 
