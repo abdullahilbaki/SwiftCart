@@ -47,7 +47,6 @@ const Navbar = () => {
 };
 
 const navElement = document.getElementById("navbar");
-
 if (navElement) {
   navElement.innerHTML = Navbar();
 }
