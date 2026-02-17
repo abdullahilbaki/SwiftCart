@@ -1,23 +1,30 @@
 const Banner = () => {
   const title = "Best Collection For You";
   const subtitle =
-    "Discover the latest trends in fashion, electronics, and more. Shop with confidence and style at SwiftCart.";
+    "Discover the latest trends in fashion, electronics, and more. " +
+    "Shop with confidence and style at SwiftCart.";
   const btnText = "Shop Now";
 
   return `
-    <div class="hero h-[600px] relative overflow-hidden" 
-         style="background-image: url('assets/banner-image.png'); background-position: center; background-size: cover;">
+    <section class="hero min-h-[500px] md:h-[600px] relative overflow-hidden flex items-center" 
+      style="background-image: url('assets/banner-image.png'); background-position: center; background-size: cover;">
       
-      <div class="hero-overlay bg-black/70"></div>
-
-      <div class="hero-content text-neutral-content justify-start w-full px-10">
-        <div class="max-w-2xl text-left">
-          <h1 class="mb-2 md:text-5xl text-4xl font-bold">${title}</h1>
-          <p class="mb-5 text-lg opacity-90">${subtitle}</p>
-          <button class="btn btn-primary">${btnText}</button>
+      <div class="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent"></div>
+      
+      <div class="container mx-auto px-6 md:px-12 relative z-10">
+        <div class="max-w-2xl text-white">
+          <h1 class="mb-2 text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+            ${title}
+          </h1>
+          <p class="mb-5 text-base md:text-xl text-gray-200 leading-relaxed">
+            ${subtitle}
+          </p>
+          <button class="btn btn-primary px-8 hover:scale-105 transition-transform duration-300">
+            ${btnText}
+          </button>
         </div>
       </div>
-    </div>
+    </section>
   `;
 };
 
