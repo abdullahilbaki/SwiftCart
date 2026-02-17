@@ -4,7 +4,7 @@ A e-commerce storefront built using the Fake Store API.
 
 ## JavaScript questions
 
-#### 1) What is the difference between `null` and `undefined`?
+### 1) What is the difference between `null` and `undefined`?
 
 জাভাস্ক্রিপ্টে এই দুইটার পার্থক্য হল:
 
@@ -14,13 +14,13 @@ A e-commerce storefront built using the Fake Store API.
 ২. Null:
 এটা ইচ্ছাকৃতভাবে সেট করা হয়। ভেরিয়েবলটি যে খালি বা সেখানে কোনো অবজেক্ট নেই, তা বোঝানোর জন্য প্রোগ্রামার নিজে এটি ব্যবহার করে।
 
-#### 2) What is the use of the `map()` function in JavaScript? How is it different from `forEach()`?
+### 2) What is the use of the `map()` function in JavaScript? How is it different from `forEach()`?
 
 ১. map() একটা নতুন অ্যারে তৈরি করে। অরিজিনাল অ্যারের প্রতিটি উপাদানের ওপর কোনো নির্দিষ্ট কাজ (Function) চালিয়ে সেই রেজাল্ট দিয়ে একটি নতুন অ্যারে রিটার্ন করে। অরিজিনাল অ্যারে অপরিবর্তিত থাকে।
 
 ২. forEach() কেবল অ্যারের প্রতিটি উপাদানের ওপর লুপ চালায়। এটা কোনো নতুন অ্যারে রিটার্ন করে না।
 
-#### 3) What is the difference between `==` and `===`?
+### 3) What is the difference between `==` and `===`?
 
 জাভাস্ক্রিপ্টে এই দুই অপারেটরের প্রধান পার্থক্য হলো তারা কীভাবে ডেটা টাইপ চেক করে।
 
@@ -30,11 +30,11 @@ A e-commerce storefront built using the Fake Store API.
 ২. === (Strict Equality):
 এটা ভ্যালু এবং ডেটা টাইপ উভয়ই সমান কি না তা পরীক্ষা করে। কোনো অটোমেটিক টাইপ কনভার্সন এখানে হয় না। এটি অনেক বেশি নিরাপদ এবং নির্ভুল।
 
-#### 4) What is the significance of `async`/`await` in fetching API data?
+### 4) What is the significance of `async`/`await` in fetching API data?
 
 জাভাস্ক্রিপ্টে async/await ব্যবহারের মূল গুরুত্ব হলো এসিনক্রোনাস (Asynchronous) কোডকে সিনক্রোনাস বা সাধারণ কোডের মতো সহজবোধ্য করা। এটা প্রমিজ (Promise) হ্যান্ডেল করার একটি আধুনিক পদ্ধতি। এতে কোড পড়তে সুবিধা হয় এবং দেখতেও গোছানো লাগে। এপিআই থেকে রেসপন্স না আসা পর্যন্ত await কি-ওয়ার্ড পরবর্তী লাইনের এক্সিকিউশন থামিয়ে রাখে। ফলে ডেটা আসার আগেই অন্য ফাংশন রান হওয়ার ভয় থাকে না।
 
-#### 5) Explain the concept of Scope in JavaScript (Global, Function, Block).
+### 5) Explain the concept of Scope in JavaScript (Global, Function, Block).
 
 ভেরিয়েবলের অ্যাক্সেস করার ক্ষমতাকেই Scope বলে।
 
