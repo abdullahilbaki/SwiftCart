@@ -1,10 +1,17 @@
 import { layout } from "./theme.js";
 
-const NAV_ITEMS = ["Home", "Products", "About", "Contact"];
+// const NAV_ITEMS = ["Home", "Products", "About", "Contact"];
+
+const NAV_ITEMS = [
+  { name: "Home", link: "/" },
+  { name: "Products", link: "/products.html" },
+  { name: "About", link: "#" },
+  { name: "Contact", link: "#" },
+];
 
 const Navbar = () => {
   return `
-    <div class="navbar ${layout}">
+    <div class="navbar ${layout} border-b-1 border-gray-300">
       <div class="navbar-start">
         ${Logo()}
       </div>
@@ -28,7 +35,7 @@ const CartIcon = () =>
 const ShowMenuItems = () => {
   return `
     <ul class="menu menu-horizontal px-1 text-lg">
-      ${NAV_ITEMS.map((item) => `<li><a>${item}</a></li>`).join("")}
+      ${NAV_ITEMS.map((item) => `<li><a href="${item.link}">${item.name}</a></li>`).join("")}
     </ul>
   `;
 };
@@ -40,7 +47,7 @@ const ShowMenuItemsMobile = () => {
       <i class="fa-solid fa-bars text-xl"></i>
     </div>
     <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
-      ${NAV_ITEMS.map((item) => `<li><a>${item}</a></li>`).join("")}
+      ${NAV_ITEMS.map((item) => `<li><a href="${item.link}">${item.name}</a></li>`).join("")}
     </ul>
     </div>
   `;
