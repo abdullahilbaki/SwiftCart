@@ -1,3 +1,5 @@
+import { layout } from "./theme.js";
+
 const Banner = () => {
   const title = "Best Collection For You";
   const subtitle =
@@ -11,7 +13,7 @@ const Banner = () => {
       
       <div class="absolute inset-0 bg-gradient-to-r from-black/90 to-transparent"></div>
       
-      <div class="container mx-auto px-6 md:px-12 relative z-10">
+      <div class="${layout} relative z-10">
         <div class="max-w-2xl text-white">
           <h1 class="mb-2 text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
             ${title}

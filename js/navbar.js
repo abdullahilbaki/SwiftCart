@@ -1,3 +1,5 @@
+import { layout } from "./theme.js";
+
 const NAV_ITEMS = ["Home", "Products", "About", "Contact"];
 
 const Logo = () =>
@@ -29,7 +31,7 @@ const ShowMenuItemsMobile = () => {
 
 const Navbar = () => {
   return `
-    <div class="navbar bg-base-100 shadow-sm">
+    <div class="navbar ${layout}">
       <div class="navbar-start">
         ${Logo()}
       </div>
