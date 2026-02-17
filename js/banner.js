@@ -15,7 +15,7 @@ const Banner = () => {
       
       <div class="${layout} relative z-10">
         <div class="max-w-2xl text-white">
-          <h1 class="mb-2 text-4xl md:text-5xl font-extrabold tracking-tight leading-tight">
+          <h1 class="mb-2 text-4xl md:text-6xl font-extrabold tracking-tight leading-tight">
             ${title}
           </h1>
           <p class="mb-5 text-base md:text-xl text-gray-200 leading-relaxed">
