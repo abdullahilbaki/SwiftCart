@@ -2,6 +2,23 @@ import { layout } from "./theme.js";
 
 const NAV_ITEMS = ["Home", "Products", "About", "Contact"];
 
+const Navbar = () => {
+  return `
+    <div class="navbar ${layout}">
+      <div class="navbar-start">
+        ${Logo()}
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        ${ShowMenuItems()}
+      </div>
+      <div class="navbar-end">
+        ${CartIcon()}
+        ${ShowMenuItemsMobile()}
+      </div>
+    </div>
+  `;
+};
+
 const Logo = () =>
   `<a class="btn btn-ghost text-2xl font-extrabold text-primary">SwiftCart</a>`;
 
@@ -25,23 +42,6 @@ const ShowMenuItemsMobile = () => {
     <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
       ${NAV_ITEMS.map((item) => `<li><a>${item}</a></li>`).join("")}
     </ul>
-    </div>
-  `;
-};
-
-const Navbar = () => {
-  return `
-    <div class="navbar ${layout}">
-      <div class="navbar-start">
-        ${Logo()}
-      </div>
-      <div class="navbar-center hidden lg:flex">
-        ${ShowMenuItems()}
-      </div>
-      <div class="navbar-end">
-        ${CartIcon()}
-        ${ShowMenuItemsMobile()}
-      </div>
     </div>
   `;
 };
