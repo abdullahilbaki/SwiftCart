@@ -1,5 +1,6 @@
 import { loadProducts } from "./loadProducts.js";
 import { layout } from "./theme.js";
+import { initModalListener } from "./modalController.js";
 
 const ShowProducts = async () => {
   let categories = [];
@@ -14,12 +15,12 @@ const ShowProducts = async () => {
 
   const categoryButtons = ["all", ...categories]
     .map((cat) => {
-      const isAll = cat === "all";
+      const isActive = cat === "all";
       return `
       <button 
         data-category="${cat}"
-        class="category-btn btn ${isAll ? "btn-primary border-none shadow-md px-8" : "btn-outline border-slate-200 px-6"} 
-        rounded-full capitalize text-base hover:bg-slate-100 hover:border-slate-300">
+        class="category-btn btn ${isActive ? "btn-primary border-none shadow-md px-8" : "btn-outline border-slate-200 text-slate-600 px-6"} 
+        rounded-full capitalize text-base transition-all duration-200">
         ${cat}
       </button>
     `;
@@ -31,10 +32,8 @@ const ShowProducts = async () => {
         <div id="category-container" class="flex justify-center flex-wrap gap-3 p-6 bg-white">
             ${categoryButtons}
         </div>
-
-        <div id="all-products-grid" class="pb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-            <p class="text-gray-400 text-center col-span-full">Loading amazing deals...</p>
-        </div>
+        <div id="all-products-grid" class="pb-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 min-h-[400px]">
+            </div>
     </div>  
   `;
 };
@@ -46,7 +45,10 @@ if (productsElement) {
     productsElement.innerHTML = html;
 
     const gridId = "all-products-grid";
+
     loadProducts("https://fakestoreapi.com/products", gridId);
+
+    initModalListener("products");
 
     const container = document.getElementById("category-container");
     container.addEventListener("click", (e) => {
@@ -55,10 +57,10 @@ if (productsElement) {
 
       container.querySelectorAll(".category-btn").forEach((b) => {
         b.classList.remove("btn-primary", "border-none", "shadow-md");
-        b.classList.add("btn-outline", "border-slate-200");
+        b.classList.add("btn-outline", "border-slate-200", "text-slate-600");
       });
       btn.classList.add("btn-primary", "border-none", "shadow-md");
-      btn.classList.remove("btn-outline", "border-slate-200");
+      btn.classList.remove("btn-outline", "border-slate-200", "text-slate-600");
 
       const category = btn.dataset.category;
       const url =
@@ -67,8 +69,8 @@ if (productsElement) {
           : `https://fakestoreapi.com/products/category/${category}`;
 
       document.getElementById(gridId).innerHTML = `
-        <div class="col-span-full flex justify-center py-10">
-            <span class="loading loading-spinner loading-lg text-primary"></span>
+        <div class="col-span-full flex justify-center py-20">
+            <span class="loading loading-spinner loading-lg text-indigo-600"></span>
         </div>`;
 
       loadProducts(url, gridId);
